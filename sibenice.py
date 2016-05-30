@@ -8,17 +8,24 @@ pouzita = []
 
 def hrac (pole):
     pismeno = input("Jaké tipuješ písmeno?: ")
-    if pismeno in vybrane_slovo:
-        return pole[:vybrane_slovo.index(pismeno)] + pismeno + pole[vybrane_slovo.index(pismeno) + 1:]
-    else:
-        if pismeno in pouzita:
+    if pismeno.isdigit() or pismeno not in vybrane_slovo or (pismeno in vybrane_slovo and len(pismeno)!=1):
+        if pismeno.isdigit():
+            print("Číslo....vážně?!?")
+        elif pismeno == "" or pismeno.isspace():
+            print("Fujko, to bylo co?")
+        elif len(pismeno)!=1:
+            print("Pomalu, zadáváme pouze po jednom písmenu ;-)")
+        elif pismeno in pouzita:
             print("Fakt tam není")
         else:
+            pouzita.append(pismeno)
             print("Toto písmeno tu není")
         seznam_pokusu.append(len(seznam_pokusu))
         obrazky.seznam[seznam_pokusu[-1]]()
-        pouzita.append(pismeno)
         return pole
+    else:
+        print("Paráda, trefila ses!")
+        return pole[:vybrane_slovo.index(pismeno)] + pismeno + pole[vybrane_slovo.index(pismeno) + 1:]
 
 def hra():
     pole = len(vybrane_slovo)*"_"

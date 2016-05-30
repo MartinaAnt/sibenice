@@ -1,3 +1,4 @@
+
 def obr1():
     print("""
 +
@@ -88,4 +89,6 @@ def obr9():
 |  / \\
 |
 ~~~~~~~""")
-# co dělá pravá nožička, když dám jen jedno \ ???
+# pravá nožička musí mít dvě \
+
+seznam = [obr1, obr2, obr3,obr4,obr5,obr6,obr7,obr8,obr9]
